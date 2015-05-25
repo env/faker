@@ -1,4 +1,4 @@
-(defproject faker "0.3.0-SNAPSHOT"
+(defproject faker "0.3.0"
             :description
             "Fake data generation for Clojure(script).
              Fork of @paraseba/faker, port of Ruby @stympy/faker"
