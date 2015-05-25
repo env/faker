@@ -1,4 +1,4 @@
-(defproject env/faker "0.3.0"
+(defproject env/faker "0.3.1-SNAPSHOT"
             :description "Fake data generation for Clojure(script)."
             :url "https://github.com/env/faker"
 
