@@ -50,7 +50,11 @@
 
             :test-paths ["target/generated/test/clj" "test"]
 
-            :cljsbuild {:builds
+            :cljsbuild {:test-commands {"unit" ["phantomjs" :runner
+                                                "window.literal_js_was_evaluated=true"
+                                                "target/unit-test.js"]}
+
+                        :builds
                         {:test {:source-paths ["src" "test"
                                                "target/generated/src/cljs"
                                                "target/generated/test/cljs"]

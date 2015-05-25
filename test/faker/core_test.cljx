@@ -1,9 +1,7 @@
 (ns faker.core-test
-  #_(:require-macros [cemerick.cljs.test
-                    :refer (is deftest with-test run-tests testing test-var)])
+  #+cljs (:require-macros [cemerick.cljs.test :refer [is testing deftest]])
+  (:require #+clj [clojure.test :refer :all]
+    #+cljs [cemerick.cljs.test :as t]))
 
-  #+clj
-  (:require [clojure.test :refer [is deftest with-test-run-tests testing test-var]]))
 
-#_(deftest hello-world
-         (is (= 1 1)))
+(is (= 1 1))

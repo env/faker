@@ -3,8 +3,11 @@
   (:require [faker.address-data :as data]
             [faker.name :as na]
             [clojure.string :as string]
-            #+cljs [goog.string :as gstring :refer [format]]
+            #+cljs [goog.string :as gstring]
             #+cljs [goog.string.format]))
+
+#+cljs
+(def format gstring/format)
 
 (defn- numerify [& formats]
   (string/replace (rand-nth formats)
@@ -80,12 +83,12 @@
 (defn uk-county
   "Return a random UK county."
   []
-  (rand-nth uk-counties))
+  (rand-nth data/uk-counties))
 
 (defn uk-country
   "Return a random UK country."
   []
-  (rand-nth uk-countries))
+  (rand-nth data/uk-countries))
 
 (def ^{:private true} alphabet (seq "abcdefghijklmnopqrstuvwxyz"))
 
