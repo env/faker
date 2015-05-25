@@ -1,14 +1,15 @@
 (ns faker.company
   "Create fake company data"
-  (:use
-     [clojure.string :only (join)]
-     faker.company-data)
-  (:require [faker.name :as fkname]))
+  (:require [faker.name :as fkname]
+            [faker.company-data :as data]
+            [clojure.string :refer [join]]
+     #+cljs [goog.string :as gstring :refer [format]]
+     #+cljs [goog.string.format]))
 
 (defn suffix
   "Return a random company suffix, like Inc or Group."
   []
-  (rand-nth suffixes))
+  (rand-nth data/suffixes))
 
 (defn- phrase [source]
   (join " " (map #(rand-nth %) source)))
@@ -16,12 +17,12 @@
 (defn catch-phrase
   "Return a random company catch phrase."
   []
-  (phrase catch-phrase-words))
+  (phrase data/catch-phrase-words))
 
 (defn bs
   "Return random company BS goals."
   []
-  (phrase bs-words))
+  (phrase data/bs-words))
 
 (def ^{:private true} formats
   [#(str (first (fkname/names)) " " (suffix))

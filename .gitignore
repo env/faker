@@ -3,3 +3,6 @@
 /lib
 /classes
 /autodoc/**
+.idea
+*.iml
+target/

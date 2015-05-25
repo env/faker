@@ -1,9 +1,10 @@
 (ns faker.address
   "Create fake address data."
-  (:use faker.address-data)
-  (:require [faker.name :as na]
-            [clojure.string :as string]))
-
+  (:require [faker.address-data :as data]
+            [faker.name :as na]
+            [clojure.string :as string]
+            #+cljs [goog.string :as gstring :refer [format]]
+            #+cljs [goog.string.format]))
 
 (defn- numerify [& formats]
   (string/replace (rand-nth formats)
@@ -19,27 +20,27 @@
 (defn us-state
   "Returns a random USA state."
   []
-  (rand-nth us-states))
+  (rand-nth data/us-states))
 
 (defn us-state-abbr
   "Returns a random USA state abbreviation."
   []
-  (rand-nth us-state-abbrs))
+  (rand-nth data/us-state-abbrs))
 
 (defn city-prefix
   "Returns a random city prefix, like North or South."
   []
-  (rand-nth city-prefixes))
+  (rand-nth data/city-prefixes))
 
 (defn city-suffix
   "Returns a random city suffix, like town or land."
   []
-  (rand-nth city-suffixes))
+  (rand-nth data/city-suffixes))
 
 (defn street-suffix
   "Returns a random street suffix, like Avenue or Bridge."
   []
-  (rand-nth street-suffixes))
+  (rand-nth data/street-suffixes))
 
 (def ^{:private true} city-formats
   [#(format "%s %s%s" (city-prefix) (na/first-name) (city-suffix))
@@ -97,4 +98,3 @@
   "Return a random UK postcode."
   []
   (string/upper-case (letterify (numerify "??# #??" "??## #??"))))
-
