@@ -11,16 +11,18 @@ test scenarios or staging servers.
 The easiest way is to use Leiningen. Add the following dependency to your
 project.clj file:
 
-    [faker "0.2.2"]
+    [faker "0.3.0"]
 
 
 ## Usage
 
     (ns test
-      (:use faker.name faker.lorem))
+      (:require 
+       [faker.name :as name]
+       [faker.lorem :as lorem]))
 
-    (def n (take 10 (names)))
-    (def p (take 10 (paragraphs)))
+    (def n (take 10 (name/names)))
+    (def p (take 10 (lorem/paragraphs)))
 
 There are several more namespaces for generating:
 
@@ -30,6 +32,3 @@ There are several more namespaces for generating:
 * Domains and emails
 * Telephone numbers
 * Text
-
-Take a look at the documentation generated with autodoc
-[here](http://paraseba.github.com/faker)

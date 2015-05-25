@@ -1,16 +1,13 @@
-(defproject faker "0.3.0"
-            :description
-            "Fake data generation for Clojure(script).
-             Fork of @paraseba/faker, port of Ruby @stympy/faker"
+(defproject env/faker "0.3.0"
+            :description "Fake data generation for Clojure(script)."
             :url "https://github.com/env/faker"
 
             :license {:name "The MIT License"
                       :url "http://opensource.org/licenses/MIT"}
 
-            :dependencies [[org.clojure/clojure "1.6.0"]
-                           [org.clojure/clojurescript "0.0-2371"]
-                           [com.cemerick/url "0.1.1"]
-                           [ring/ring-core "1.2.1"]]
+            :dependencies [[org.clojure/clojure "1.7.0-beta2"]
+                           [org.clojure/clojurescript "0.0-3269"]
+                           [com.cemerick/url "0.1.1"]]
 
             :plugins [[lein-cljsbuild "1.0.3"]
                       [com.cemerick/clojurescript.test "0.3.1"]]
@@ -30,8 +27,7 @@
                              :output-path "target/generated/test/cljs"
                              :rules :cljs}]}
 
-            :profiles {:dev {:dependencies [[ring-mock "0.1.5"]
-                                            [prismatic/schema "0.3.2"]]
+            :profiles {:dev {:dependencies [[prismatic/schema "0.3.2"]]
 
                              :plugins [[com.keminglabs/cljx "0.5.0"]
                                        [com.cemerick/clojurescript.test "0.3.1"]]}}
