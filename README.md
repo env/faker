@@ -1,7 +1,7 @@
 # Faker
 
 Faker is a port of [Ruby Faker library](http://faker.rubyforge.org/) to the
-clojure programming language.
+Clojure(script) programming language.
 
 It is useful when you want to generate fake but good-looking data, such as in
 test scenarios or staging servers.
@@ -11,7 +11,7 @@ test scenarios or staging servers.
 The easiest way is to use Leiningen. Add the following dependency to your
 project.clj file:
 
-    [faker "0.3.0"]
+    [env/faker "0.3.0"]
 
 
 ## Usage
