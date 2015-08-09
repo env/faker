@@ -3,11 +3,10 @@
   (:require [faker.name :as fkname]
             [faker.company-data :as data]
             [clojure.string :refer [join]]
-     #+cljs [goog.string :as gstring]
-     #+cljs [goog.string.format]))
+            #?(:cljs [goog.string :as gstring])
+            #?(:cljs [goog.string.format])))
 
-#+cljs
-(def format gstring/format)
+#?(:cljs (def format gstring/format))
 
 (defn suffix
   "Return a random company suffix, like Inc or Group."

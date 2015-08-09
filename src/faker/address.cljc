@@ -3,17 +3,16 @@
   (:require [faker.address-data :as data]
             [faker.name :as na]
             [clojure.string :as string]
-            #+cljs [goog.string :as gstring]
-            #+cljs [goog.string.format]))
+            #?(:cljs [goog.string :as gstring])
+            #?(:cljs [goog.string.format])))
 
-#+cljs
-(def format gstring/format)
+#?(:cljs
+   (def format gstring/format))
 
 (defn- numerify [& formats]
   (string/replace (rand-nth formats)
                   #"#"
                   (fn [_] (str (rand-int 10)))))
-
 
 (defn zip-code
   "Create a random USA zip code."
